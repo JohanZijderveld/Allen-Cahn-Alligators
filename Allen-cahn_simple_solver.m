@@ -14,6 +14,7 @@ t_span = 0:tau:T;
 rng(2);
 u = 0.1*rand(N,1);
 uback = u; 
+u0_ode = u;
 
 %Create the negative Laplacian
 %Laplacian matrix
