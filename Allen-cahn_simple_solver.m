@@ -56,4 +56,8 @@ figure
 plot(x, utimeback(:, 1:150:end), '-');
 xlabel('x','FontSize', 12); ylabel('u(x,t)','FontSize', 12);
 
+figure
+plot(x, utime_ode(:, 1:150:end), '-');
+xlabel('x','FontSize', 12); ylabel('u(x,t)','FontSize', 12);
+
 hold on;
