@@ -9,9 +9,9 @@ utime = zeros(N,T/tau+1);
 utimeback = zeros (N,T/tau+1);
 
 
-%initial conditions (random noise)
-rng(2);
-u = 0.1*rand(N,1);
+%initial conditions (random noise) (we can also change this to negative and bigger numbers)
+rng(20);
+u = rand(N,1);
 uback = u; 
 
 %Create the negative Laplacian
