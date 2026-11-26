@@ -7,6 +7,7 @@ x = (a:h:b); N = length (x);
 ga = 0; gb = 0;
 utime = zeros(N,T/tau+1);
 utimeback = zeros (N,T/tau+1);
+t_span = 0:tau:T;
 
 
 %initial conditions (random noise)
