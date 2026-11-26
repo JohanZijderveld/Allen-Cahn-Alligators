@@ -9,9 +9,9 @@ utime = zeros(N,T/tau+1);
 utimeback = zeros (N,T/tau+1);
 
 
-%initial conditions (random noise) (we can also change this to negative and bigger numbers)
-rng(20);
-u = rand(N,1);
+%initial conditions (random noise)
+rng(2);
+u = 0.1*rand(N,1);
 uback = u; 
 
 %Create the negative Laplacian
@@ -34,6 +34,11 @@ for steps = 1:(T/tau+1)
     utimeback(:,steps) = uback;
     uback = A\(uback + tau * (uback-uback.^3))
 end
+
+%"Perfect solver"
+rhs = @(t, y) eps^2 * (lap * y) / (h^2) + y - y.^3;
+[~, y_ode] = ode45(rhs, t_span, u0_ode);
+utime_ode = y_ode'; % Transpose to N x num_steps to match utime and utimeback
 
 %for task 3, you can plot this with the things from below 
 %utime is an array of the solutions at given times (forward)
